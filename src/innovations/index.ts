@@ -170,6 +170,39 @@ export type {
 } from './realtime-collab/sessionBroker.js'
 
 // ---------------------------------------------------------------------------
+// 9. Session Replay & Debugging
+// ---------------------------------------------------------------------------
+export {
+  SessionRecorder,
+  SessionReplayer,
+  SessionAnalyzer,
+  DiffViewer,
+  createSessionReplay,
+} from './session-replay/index.js'
+
+export type {
+  EventType,
+  SessionEvent,
+  RecordingMetadata,
+  SessionRecording,
+  ReplayOptions,
+  ReplayState,
+  TimelineEntry,
+  TokenUsage,
+  ToolStats,
+  CostBreakdown,
+  EfficiencyScore,
+  Bottleneck,
+  ErrorPattern,
+  SessionAnalysis,
+  ComparisonReport,
+  ToolDiff,
+  TimingDiff,
+  SessionDiff,
+  SessionReplay,
+} from './session-replay/index.js'
+
+// ---------------------------------------------------------------------------
 // Integration
 // ---------------------------------------------------------------------------
 export { InnovationOrchestrator } from './orchestrator.js'
