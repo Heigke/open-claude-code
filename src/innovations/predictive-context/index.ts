@@ -7,6 +7,10 @@
 // first based on a multi-factor priority score.
 // ---------------------------------------------------------------------------
 
+import { PriorityCalculator, buildConversationContext } from './messagePriority.js'
+import { ContextPredictor } from './contextPredictor.js'
+import { SelectiveCompactor } from './selectiveCompactor.js'
+
 export {
   type MessagePriority,
   type ConversationContext,
@@ -26,6 +30,14 @@ export {
   type CompactionSelection,
   SelectiveCompactor,
 } from './selectiveCompactor.js'
+
+export {
+  ContextHealthMonitor,
+} from './contextHealthMonitor.js'
+export type {
+  TurnMetrics,
+  HealthScore,
+} from './contextHealthMonitor.js'
 
 // ---------------------------------------------------------------------------
 // Factory — convenience function to create a fully wired instance set

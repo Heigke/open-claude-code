@@ -26,3 +26,7 @@ export type {
   EnhancedPermissionCheckFn,
   TrustEscalation,
 } from './trustIntegration.js'
+
+// Dashboard
+export { TrustDashboard } from './trustDashboard.js'
+export type { TrustSummary, RecentActivity } from './trustDashboard.js'

@@ -42,6 +42,15 @@ export type {
   RoutingRecord,
 } from './routerIntegration.js'
 
+// Analytics
+export { RoutingAnalytics } from './routingAnalytics.js'
+export type {
+  RoutingOutcome,
+  RoutingAccuracy,
+  CostSavings,
+  ModelPerformance,
+} from './routingAnalytics.js'
+
 // ---------------------------------------------------------------------------
 // Factory
 // ---------------------------------------------------------------------------

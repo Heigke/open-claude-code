@@ -30,6 +30,14 @@ export type {
 export { ToolFeedbackSystem } from './feedbackIntegration.js'
 export type { ToolFeedbackStats } from './feedbackIntegration.js'
 
+// Dashboard
+export { FeedbackDashboard } from './feedbackDashboard.js'
+export type {
+  ToolHealthEntry,
+  InsightEffectiveness,
+  ProblematicTool,
+} from './feedbackDashboard.js'
+
 // ---------------------------------------------------------------------------
 // Factory
 // ---------------------------------------------------------------------------

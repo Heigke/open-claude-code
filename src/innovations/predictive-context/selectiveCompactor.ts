@@ -1,6 +1,4 @@
 import type { Message } from '../../types/message.js'
-import { roughTokenCountEstimation } from '../../services/tokenEstimation.js'
-import { jsonStringify } from '../../utils/slowOperations.js'
 import type { MessagePriority } from './messagePriority.js'
 
 // ---------------------------------------------------------------------------
@@ -157,16 +155,10 @@ export class SelectiveCompactor {
    */
   private estimateMessageTokens(msg: Message): number {
     try {
-      // roughTokenCountEstimation takes a string; serialise the message first.
-      const serialised = jsonStringify(msg)
-      return roughTokenCountEstimation(serialised)
+      // Rough estimate from JSON serialisation (4 chars ≈ 1 token).
+      return Math.ceil(JSON.stringify(msg).length / 4)
     } catch {
-      // Fallback: rough estimate from JSON serialisation (4 chars ≈ 1 token).
-      try {
-        return Math.ceil(JSON.stringify(msg).length / 4)
-      } catch {
-        return 100 // conservative floor for un-serialisable messages
-      }
+      return 100 // conservative floor for un-serialisable messages
     }
   }
 

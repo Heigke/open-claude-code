@@ -37,6 +37,13 @@ export type {
   WorkResults,
 } from './meshCoordinator.js'
 
+export { AgentPerformanceTracker } from './agentPerformance.js'
+export type {
+  TaskRecord,
+  AgentStats,
+  AgentRanking,
+} from './agentPerformance.js'
+
 // ---------------------------------------------------------------------------
 // Factory
 // ---------------------------------------------------------------------------
