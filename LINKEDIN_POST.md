@@ -2,30 +2,32 @@
 
 ---
 
-**We reverse-engineered Claude Code's architecture. Then we started innovating on top of it.**
+**Studying how Anthropic built Claude Code taught us a lot. Now we're experimenting with ideas inspired by it.**
 
-When Anthropic's Claude Code source leaked via an npm source map last week, most people just looked at it. We did something different -- we studied the entire 512,000-line TypeScript codebase, wrote a comprehensive architecture report, and started building what's missing.
+Last week, Claude Code's TypeScript source became briefly accessible through a source map in the npm package. As a student interested in software architecture and agentic tooling, I took the opportunity to study how one of the most capable developer tools is actually built.
 
-The result: **Open Claude Code** -- an open research project exploring the next generation of agentic developer tools.
+Huge credit to Anthropic -- the engineering is impressive. The permission system, the multi-agent coordination, the streaming query pipeline -- it's clear a lot of thought went into this.
 
-We built 5 innovation modules (7,500+ lines, fully tested):
+But studying great work also sparks ideas. We started experimenting with concepts that could complement or extend this kind of architecture:
 
-1. **Progressive Trust Escalation** -- Instead of asking "allow this command?" every single time, the system learns which tools you trust in which workspaces. Trust scores decay over time and anomaly detection flags unusual patterns.
+1. **Progressive Trust Escalation** -- What if permission prompts learned from your behavior over time, instead of asking the same question every session?
 
-2. **Predictive Context Management** -- Current AI tools reactively compress context when it gets too big. We predict token growth and proactively compact low-priority messages before hitting limits. Semantic priority scoring means the AI never forgets what matters.
+2. **Predictive Context Management** -- What if context compaction happened proactively based on predicted growth, rather than reactively when you're already at the limit?
 
-3. **Agent Mesh with Shared Knowledge** -- Multi-agent systems today are dumb orchestration. Our agent mesh gives agents a shared knowledge graph, automatic conflict resolution for file changes, and dynamic work rebalancing.
+3. **Agent Mesh with Shared Knowledge** -- What if multiple agents could share a knowledge graph and resolve file conflicts automatically?
 
-4. **Hybrid Local/Cloud Model Routing** -- Not every "read this file" needs a $0.15 API call. Our complexity analyzer routes trivial tasks to local models and reserves cloud APIs for real reasoning. Automatic fallback when local models struggle.
+4. **Hybrid Local/Cloud Model Routing** -- What if simple tasks went to a local model and only complex reasoning hit the cloud API?
 
-5. **Tool Failure Feedback Loop** -- When the AI fails to edit a file 3 times in a row, it should learn. Our system detects failure patterns and injects adaptive hints: "this file changed since you last read it" or "try a different approach."
+5. **Tool Failure Feedback Loop** -- What if the system noticed repeated tool failures and injected hints to help the model recover?
 
-All open source. All with comprehensive test suites.
+These are early-stage research prototypes, not production-ready tools. We've written tests and documentation, but there's a long way to go.
 
-This isn't about copying Anthropic's work -- it's about studying the best agentic CLI architecture in the world and asking: what's next?
+We respect that the original source is Anthropic's work and this project is purely for educational and research purposes. If anything here is useful to the community or to Anthropic themselves, that's a win.
 
-Check it out: github.com/Heigke/open-claude-code
+Would love feedback from anyone working on agentic developer tools.
 
-#OpenSource #AI #DeveloperTools #AgenticAI #ClaudeCode #SoftwareEngineering #Innovation
+github.com/Heigke/open-claude-code
+
+#OpenSource #AI #DeveloperTools #AgenticAI #SoftwareEngineering #Research
 
 ---
